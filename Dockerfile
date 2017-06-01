@@ -52,7 +52,7 @@ COPY override /override
 # Setup file system
 RUN placeholder="" \
     && find /override -type f -name '.git-placeholder-0bb801e065cd4749af279ecbe05d3456' -delete \
-    && cp -Rf /override / \
+    && cp -Rf /override/. / \
     && sed -i 's/USER=debian-transmission/USER=root/g' /etc/init.d/transmission-daemon
 
 # Default values for environment variables
