@@ -1,0 +1,17 @@
+# Use this profile to manually launch filebot again on unsorted files,
+# usually after some manual modifications.
+
+fb_outputDir="/out"
+fb_sourceDir="/out/Unsorted"
+fb_action="move"
+fb_skipExtract="y"
+fb_conflict="auto"
+fb_strict="n"
+fb_unsorted="n"
+fb_ignore=""
+fb_music="y"
+fb_verbose="n"
+fb_mediaKind="multi"
+fb_clean="y"
+fb_excludeList=""
+

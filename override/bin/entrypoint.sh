@@ -13,8 +13,9 @@ mvln "/etc/transmission-daemon/settings.json"     "/data/.transmission-daemon/se
 mvln "/var/lib/transmission-daemon/info/resume"   "/data/.transmission-daemon/resume"
 mvln "/var/lib/transmission-daemon/info/torrents" "/data/.transmission-daemon/torrents"
 
-mvln "/etc/filebot-wrapper/profiles"              "/data/.filebot-wrapper/profiles"
-mvln "/var/log/filebot-wrapper"                   "/data/.filebot-wrapper/log"
+#mvln "/etc/filebot-wrapper/profiles"              "/data/.filebot-wrapper/profiles"
+#mvln "/var/log/filebot-wrapper"                   "/data/.filebot-wrapper/log"
+#mvln "/var/lib/filebot-wrapper/exclude-list"      "/data/.filebot-wrapper/exclude-list"
 
 # Some configuration properties always need to be overwritten
 # for the container to work properly

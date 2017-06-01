@@ -25,20 +25,24 @@ filebotWrapperMain()
     #do
     #    
     #done
-
+    
+    # Always remove the "empty" exclusion-list
+    rm -f "/var/lib/filebot-wrapper/exclude-list/.lst" 2>&1 >/dev/null
+    
     # Invoke filebot
     filebot \
         --output "$fb_outputDir" \
         --action "$fb_action" \
         --conflict "$fb_conflict" \
+        $(echo "$fb_strict" | sed -nr 's:^n|no|false$:-non-strict:ip') \
         --lang "$fb_lang" \
         -script fn:amc \
         --def \
-            minFileSize="$fb_minFileSize" \
-            minLengthMS="$fb_minLengthMs" \
+            minFileSize="$fb_minVideoSize" \
+            minLengthMS="$fb_minVideoLength" \
             ut_dir="$fb_sourceDir" \
             ut_kind="$fb_mediaKind" \
-            excludeList="$fb_excludeList" \
+            excludeList="/var/lib/filebot-wrapper/exclude-list/$fb_excludeList.lst" \
             skipExtract="$fb_skipExtract" \
             extractFolder="$fb_extractDir" \
             deleteAfterExtract="$fb_deleteAfterExtract" \
@@ -48,6 +52,7 @@ filebotWrapperMain()
             movieFormat="$fb_movieFormat" \
             musicFormat="$fb_musicFormat" \
             unsorted="$fb_unsorted" \
+            ignore="$fb_ignore" \
             music="$fb_music"
 }
 
