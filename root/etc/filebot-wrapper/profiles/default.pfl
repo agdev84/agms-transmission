@@ -1,0 +1,25 @@
+# This profile gets pre-loaded before any other profile.
+# This means it defines the default values.
+
+fb_outputDir="/out"
+fb_sourceDir="/data/staging"
+fb_action="move"
+fb_extractDir="/data/staging/unzipped"
+fb_skipExtract="n"
+fb_deleteAfterExtract="y"
+fb_conflict="auto"
+fb_strict="y"
+fb_xattr="n"
+fb_seriesFormat="series/{n}/{s}x{e} - {t}"
+fb_animeFormat="series/{n}/{s}x{e} - {t}"
+fb_movieFormat="movies/{n}/{n}"
+fb_musicFormat="music/{artist}/{album}/cd-{pi}/{t}"
+fb_unsorted="n"
+fb_ignore=""
+fb_music="n"
+fb_lang="en"
+fb_verbose="n"
+fb_mediaKind="multi"
+fb_clean="n"
+fb_excludeList="/var/log/filebot-wrapper/exclude.lst"
+
