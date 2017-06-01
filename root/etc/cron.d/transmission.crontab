@@ -1,6 +1,0 @@
-# minute hour day month week-day
-# * * * * * root dump-torrent-metadata.sh
-0 * * * * root remove-seeded-torrents.sh
-
-# Leave an empty line at the end of the file for it to be valid
-
