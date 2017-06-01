@@ -1,0 +1,18 @@
+# This profile gets automatically executed from by the system
+
+fb_outputDir="/out"
+fb_sourceDir="/data/staging"
+fb_action="move"
+fb_extractDir="/data/staging/unzipped"
+fb_skipExtract="n"
+fb_deleteAfterExtract="y"
+fb_conflict="auto"
+fb_strict="y"
+fb_xattr="n"
+fb_unsorted="n"
+fb_ignore=""
+fb_music="y"
+fb_verbose="n"
+fb_mediaKind="multi"
+fb_clean="y"
+

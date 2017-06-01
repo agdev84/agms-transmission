@@ -1,0 +1,35 @@
+#!/bin/bash
+
+. /bin/transmission-helper.sh
+
+cloneToStaging()
+{
+    local TORRENT_ID="$1"
+    local TORRENT_DIR="$2"
+    local TORRENT_HASH="$(getTorrentHash "$TORRENT_ID")"
+    local TORRENT_NAME="$(getTorrentName "$TORRENT_ID")"
+    local TIMESTAMP="$(timestamp)"
+    local STAGING_DIR="/data/staging/[$TIMESTAMP] $TORRENT_NAME"
+    local TEMP_DIR="/data/.clone-to-staging/tmp/[$TIMESTAMP] $TORRENT_NAME"
+    
+    if [ -z "$TORRENT_DIR" ]; then
+        echo "No TORRENT_DIR specified." >&2
+        exit 1
+    fi
+    if [ -z "$TORRENT_ID" ]; then
+        echo "No TORRENT_ID specified." >&2
+        exit 1
+    fi
+    
+    getTorrentFiles "$TORRENT_ID" | while read FILE_PATH
+    do
+        mkdir -p "$TEMP_DIR/$(dirname "$FILE_PATH")"
+        ln "$TORRENT_DIR/$FILE_PATH" "$TEMP_DIR/$FILE_PATH"
+    done
+    
+    # Commit
+    mv "$TEMP_DIR" "$STAGING_DIR"
+}
+
+cloneToStaging "$1" "$2" 2>&1 | tee "/var/log/clone-to-staging/$(timestamp).log"
+
