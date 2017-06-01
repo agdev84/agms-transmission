@@ -7,8 +7,7 @@ echo "$TR_USERNAME:$TR_PASSWORD" >/etc/transmission-daemon/auth.token
 . /bin/transmission-helper.sh
 
 # Relink to files on external volumes
-cp -R "/data-TEMPLATE/."                          "/data/"
-rm -R "/data-TEMPLATE"
+cp -R "/data-TEMPLATE/." "/data/" && rm -R "/data-TEMPLATE"
 
 mvln "/etc/transmission-daemon/settings.json"     "/data/.transmission-daemon/settings.json"
 mvln "/var/lib/transmission-daemon/info/resume"   "/data/.transmission-daemon/resume"
