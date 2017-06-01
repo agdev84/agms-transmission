@@ -47,7 +47,7 @@ RUN placeholder="" \
 ############################
 
 # Push required files
-COPY root /
+COPY root / && echo 'force update' >/dev/null
 
 # Setup file system
 RUN sed -i 's/USER=debian-transmission/USER=root/g' /etc/init.d/transmission-daemon
